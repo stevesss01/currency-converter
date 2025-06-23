@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base font and color settings */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated gradient background */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(
+    -45deg,
+    #ff9a9e,
+    #fad0c4,
+    #a1c4fd,
+    #c2e9fb
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+/* Noise overlay with subtle animation */
+@keyframes noiseMovement {
+  0%, 100% { background-position: 0 0; }
+  25% { background-position: 10px 10px; }
+  50% { background-position: -10px 10px; }
+  75% { background-position: 10px -10px; }
+}
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  opacity: 0.05;
+  background-image: url('https://www.transparenttextures.com/patterns/noise.png');
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  pointer-events: none;
+  animation: noiseMovement 1s steps(4) infinite;
+}
+
+/* Vignette to darken edges */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Parallax smoothness */
+#parallax-bg {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+/* Neon glow animated text */
+.animated-text {
+  background: linear-gradient(
+    90deg,
+    #ff6ec4,
+    #7873f5,
+    #43e97b,
+    #38f9d7
+  );
+  background-size: 200% 200%;
+  animation: textGradient 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Neon-style button */
+.neon-button {
+  color: #fff;
+  border: 2px solid #8A2BE2;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  box-shadow: 0 0 5px #8A2BE2, 0 0 15px #8A2BE2 inset;
+  transition: all 0.3s ease;
+}
+.neon-button:hover {
+  box-shadow: 0 0 15px #ff6ec4, 0 0 35px #ff6ec4 inset;
+  color: #ff6ec4;
+  border-color: #ff6ec4;
+}
